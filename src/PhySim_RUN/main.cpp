@@ -23,7 +23,7 @@ std::vector<registerData> registerObjs(const char* name) {
 
     // Get a handle to the DLL module.
 
-    hinstLib = LoadLibrary(TEXT("name"));
+    hinstLib = LoadLibrary(TEXT(name));
 
     // If the handle is valid, try to get the function address.
 
@@ -52,6 +52,6 @@ std::vector<registerData> registerObjs(const char* name) {
 #endif
 }
 int main() {
-    registerObjs();
+    registerObjs("GravityLaw.dll");
     return 0;
 }
