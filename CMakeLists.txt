@@ -1,5 +1,5 @@
 project(PhySim CXX)
-include(CTest)
+enable_testing()
 
 cmake_minimum_required(VERSION 3.12)
 
@@ -18,8 +18,7 @@ ENDMACRO()
 
 if (WIN32)
     list(APPEND EXTRA_LIBS vcruntime user32 gdi32 winmm imm32 ole32 oleaut32 version uuid advapi32 shell32)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 endif()
 add_subdirectory(src)
 add_subdirectory(examples)
-
+add_subdirectory(tests)
