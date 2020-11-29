@@ -34,7 +34,7 @@ namespace physim {
     HINSTANCE loadLib(const char* name) {
         // Get a handle to the DLL module.
 
-        hinstLib = LoadLibrary(TEXT(name));
+        HINSTANCE hinstLib = LoadLibrary(TEXT(name));
 
         // If the handle is valid, try to get the function address.
 
