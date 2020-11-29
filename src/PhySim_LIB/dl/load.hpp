@@ -69,7 +69,6 @@ namespace physim {
         // Free the DLL module.
 
         fFreeResult = FreeLibrary(hinstLib);
-    }
 
 
 #elif __linux__
