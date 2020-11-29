@@ -1,3 +1,5 @@
 add_executable(PhySim_RUN PhySim_RUN/main.cpp)
 target_include_directories(PhySim_RUN PRIVATE PhySim_LIB)
-target_link_libraries(PhySim_RUN PRIVATE dl)
+if (UNIX)
+    target_link_libraries(PhySim_RUN PRIVATE dl)
+endif()
