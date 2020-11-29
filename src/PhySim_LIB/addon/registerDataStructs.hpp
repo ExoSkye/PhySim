@@ -6,3 +6,11 @@ struct registerData {
 	char* version;
 	char* authors;
 };
+
+struct lawData {
+
+};
+
+struct materialData {
+    //TODO: Make materials work
+};

@@ -7,7 +7,7 @@
 #define NAME "Unnamed"
 #endif
 #ifndef TYPE
-#error Tried to compile a library without a type. This won't work!
+#error "Tried to compile a library without a type. This won't work!"
 #endif
 #ifndef VERSION
 #define VERSION "No Version"
@@ -26,12 +26,9 @@ BOOL WINAPI DllMain(
     LPVOID lpReserved) {
     return TRUE;  // Successful DLL_PROCESS_ATTACH.
 }
-__declspec (dllexport) char* registerAddon(std::vector<registerData>* regList) {
+__declspec (dllexport) void registerAddon(std::vector<registerData>* regList) {
 #else
-char* registerAddon(std::vector<registerData>* regList) {
+void registerAddon(std::vector<registerData>* regList) {
 #endif
-    char* str = (char*)malloc(sizeof(char)*255);
-    sprintf(str,"Registered %s: %s %s by %s", TYPE == 1 ? "law addon" : "material Addon", NAME, VERSION, AUTHORS);
     regList->emplace_back(registerData{ NAME,TYPE,VERSION,AUTHORS });
-    return str;
 }
