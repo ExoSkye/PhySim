@@ -15,20 +15,21 @@
 #ifndef AUTHORS
 #define AUTHORS "None"
 #endif
-
+extern "C" {
 #ifdef _WIN32
-#include <Process.h>
-#include <Windows.h>
+    #include <Process.h>
+    #include <Windows.h>
 
-BOOL WINAPI DllMain(
-    HINSTANCE hinstDLL,
-    DWORD fdwReason,
-    LPVOID lpReserved) {
-    return TRUE;  // Successful DLL_PROCESS_ATTACH.
-}
-__declspec (dllexport) void registerAddon(std::vector<registerData>* regList) {
+    BOOL WINAPI DllMain(
+        HINSTANCE hinstDLL,
+        DWORD fdwReason,
+        LPVOID lpReserved) {
+        return TRUE;  // Successful DLL_PROCESS_ATTACH.
+    }
+    __declspec (dllexport) void registerAddon(std::vector<registerData>* regList) {
 #else
-void registerAddon(std::vector<registerData>* regList) {
+    void registerAddon(std::vector<registerData> *regList) {
 #endif
-    regList->emplace_back(registerData{ NAME,TYPE,VERSION,AUTHORS });
-}
+        regList->emplace_back(registerData{NAME, TYPE, VERSION, AUTHORS});
+    }
+};
